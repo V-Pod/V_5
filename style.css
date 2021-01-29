@@ -1,0 +1,30 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box; 
+}
+
+h1 {
+    font-size: 18px;
+}
+
+.fixed-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.head-box {
+    width: 100%;
+    background-color: aquamarine;
+} 
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-item {
+    display: inline-block;
+}
