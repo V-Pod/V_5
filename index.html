@@ -5,25 +5,380 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Самые свежие новости в реальном времени</title>
     <link rel="stylesheet"  type="text/css" href="style.css">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
-    <header class="head-box">
-        <div class="fixed-container flex">
-            <h1 class="flex-item">Самые 
-                <a href="" class="head-ref">
-                    свежие новости 
-                </a>
-                в реальном времени
-            </h1>
-            <div class="flex-item">
-                01:08 05.12.2020
+    <header>
+        <div class="bluebox">
+            <div class="head-box fixed-container flex-header">
+                <h1 class="flex-header-item">Самые 
+                    <a href="" class="head-ref">
+                        свежие новости 
+                    </a>
+                    в реальном времени
+                </h1>
+                <div id="current_date_time_block" class="flex-header-item head-datetime-block"></div>
             </div>
+        </div> 
+        <div class="wightbox">
+            <div class="fixed-container flex-header logo-row">
+                    <div class="burger">
+                        <div class="top-burger-layer"></div>
+                        <div class="middle-burger"></div>
+                        <div class="bottom-burger-layer"></div>
+                    </div>
+                    <div class="logo-city flex-header-item">
+                        <div class="logo">
+                            <img class="earth" src="img/logo.png" alt="Website logo">
+                            <p class = "logo-text">Новостное <br> агентство</p>
+                            <p class = "logo-row-text">Новостное агентство</p>
+                        </div>
+                        <select class="city">
+                            <option>Москва</option>
+                            <option>Казань</option>
+                        </select>
+                    </div>
+                    <img class="magnifier-only" src="img/Search.png" alt="search">  
+                    <div class="weather-search flex-header-item">
+                        <p class="weather">+22&deg;C</p>
+                        <form class="search">
+                            <input type="text" class="search-text" placeholder="Поиск по сайту">
+                            <button class="search-img" type="submit">
+                                <img class="magnifier" src="img/Search.png" alt="search">
+                            </button>
+                        </form>
+                    </div>
+            </div>
+            <nav class="nav fixed-container flex-header">
+                <ul>
+                    <li class = "flex-header-item"><a href = "#">Главная</a></li>
+                    <li class = "flex-header-item"><a href = "#">Политика</a></li>
+                    <li class = "flex-header-item"><a href = "#">Общество</a></li>
+                    <li class = "flex-header-item"><a href = "#">Экономика</a></li>
+                    <li class = "flex-header-item"><a href = "#">В мире</a></li>
+                    <li class = "flex-header-item"><a href = "#">Происшествия</a></li>
+                    <li class = "flex-header-item"><a href = "#">Спорт</a></li>
+                    <li class = "flex-header-item"><a href = "#">Наука</a></li>
+                    <li class = "flex-header-item"><a href = "#">Туризм</a></li>
+                </ul>
+            </nav>
 
-        </div>
+        </div>       
     </header>
-
-    <main></main>
-
-    <footer></footer>
+    <div class="menu">
+        <div class="menu-wight-box">
+            <div class="menu-header menu-fixed-container">
+                <button class="close reset-btn">
+                    <span class="close-line"></span>
+                    <span class="close-line"></span>
+                </button>
+                <div class="logo-city flex-header-item">
+                    <div class="logo">
+                        <img class="earth" src="img/logo.png" alt="Website logo">
+                        <p class = "logo-text">Новостное <br> агентство</p>
+                        <p class = "logo-row-text">Новостное агентство</p>
+                    </div>
+                </div>
+                <img class="magnifier-only" src="img/Search.png" alt="search">  
+            </div>
+        </div>
+        <nav class="menu-nav menu-fixed-container">
+            <ul class="menu-nav__list">
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">Главная</a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">Общество</a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">Экономика</a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">В мире</a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">Происшествия</a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">Спорт</a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">Наука</a>
+                </li>
+                <li class="menu-nav__item">
+                    <a href="#" class="menu-nav__link">Туризм</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <div class="gray-container">
+            <div class="fixed-container flex-column">
+                <div class="small-menu">
+                    <div id="small_menu_day" class="small-menu-day"></div>
+                    <div id="small_menu_time" class="small-menu-time"></div>
+                    <p class="weather">+22&deg;C</p>
+                </div>
+                <section class="column-left">
+                    <h2 class="column-left-header">Новости дня</h2>
+                    <div class="column-left-news-cover"> 
+                        <div class="column-left-news-card">
+                            <p class="column-left-news"> Кот Ахилл предсказал победу 
+                                российской сборной над Египтом 
+                                на ЧМ-2018</p>
+                            <div class="column-left-card-footer">
+                                <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                <span class="column-left-card-time">10:48</span>
+                                <span class="column-left-card-comment">15</span>
+                            </div>
+                        </div>
+                        <div class="column-left-news-card">
+                            <p class="column-left-news">«Нафтогаз»: суд разрешил заморозить 
+                                активы «Газпрома» в Великобритании</p>
+                            <div class="column-left-card-footer">
+                                <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                <span class="column-left-card-time">10:48</span>
+                                <span class="column-left-card-comment">15</span>
+                            </div>
+                        </div>
+                        <div class="column-left-news-card">
+                            <p class="column-left-news">Минтранс предписал оборудовать 
+                                общественный транспорт 
+                                кондиционерами</p>
+                            <div class="column-left-card-footer">
+                                <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                <span class="column-left-card-time">10:48</span>
+                                <span class="column-left-card-comment">15</span>
+                            </div>
+                        </div>
+                        <div class="column-left-news-card">
+                            <p class="column-left-news"> Летние кафе Москвы временно 
+                                закроются из-за непогоды</p>
+                            <div class="column-left-card-footer">
+                                <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                <span class="column-left-card-time">10:48</span>
+                                <span class="column-left-card-comment">15</span>
+                            </div>
+                        </div>
+                        <div class="column-left-news-card">
+                            <p class="column-left-news"> Комплексное благоустройство
+                                Щелковского шоссе завершится в июне</p>
+                            <div class="column-left-card-footer">
+                                <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                <span class="column-left-card-time">10:48</span>
+                                <span class="column-left-card-comment">15</span>
+                            </div>
+                        </div>
+                        <div class="column-left-news-card">
+                            <p class="column-left-news"> В Москве назвали самое популярное 
+                                мороженое у болельщиков ЧМ-2018</p>
+                            <div class="column-left-card-footer">
+                                <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                <span class="column-left-card-time">10:48</span>
+                                <span class="column-left-card-comment">15</span>
+                            </div>
+                        </div>
+                        <form class="other-news">
+                            <a href="#">Все новости</a>
+                        </form>
+                    </div>
+                </section>
+                <div class="central-container">
+                    <article class="big-article">
+                        <a href="#" class="big-article-ref color-big-article-ref">/Политика</a>
+                        <h3 class="big-article-text">
+                            <a href="#" class="color-big-article-ref">
+                                В Крыму отреагировали на слова Кравчука о возврате
+                                полуострова
+                            </a>
+                        </h3>
+                        <time datetime="2020-12-05T16:59+03:00" class="big-article-datetime">
+                            5 Декабря 2020
+                            <span class="big-article-time">16:59
+                            </span>
+                        </time>
+                    </article>
+                    <div class="article-container">
+                        <article class="small-article">
+                            <img class="small-article-img" alt="some image" src="img/SmallNews1.png">
+                            <h3 class="news-item-text">
+                              <a href="#">
+                                  Кот Ахил предсказад победу российской сборной над Египтом на ЧМ-2018
+                             </a>
+                            </h3>
+                            <div class="news-item-props">
+                                <a href="#">/ЧМ по футболу</a>
+                                <time datetime="2020-12-05T16:59+03:00" class="article-time">16:59</time>
+                                <span class="article-comments-count">17</span>
+                            </div>
+                        </article>
+                        <article class="small-article">
+                            <img class="small-article-img" alt="some image" src="img/SmallNews2.png">
+                            <h3 class="news-item-text">
+                              <a href="#">
+                                  Кот Ахил предсказад победу российской сборной над Египтом на ЧМ-2018
+                             </a>
+                            </h3>
+                            <div class="news-item-props">
+                                <a href="#">/ЧМ по футболу</a>
+                                <time datetime="2020-12-05T16:59+03:00" class="article-time">16:59</time>
+                                <span class="article-comments-count">17</span>
+                            </div>
+                        </article>
+                        <article class="small-article">
+                            <img class="small-article-img" alt="some image" src="img/SmallNews3.png">
+                            <h3 class="news-item-text">
+                              <a href="#">
+                                  Кот Ахил предсказад победу российской сборной над Египтом на ЧМ-2018
+                             </a>
+                            </h3>
+                            <div class="news-item-props">
+                                <a href="#">/ЧМ по футболу</a>
+                                <time datetime="2020-12-05T16:59+03:00" class="article-time">16:59</time>
+                                <span class="article-comments-count">17</span>
+                            </div>
+                        </article>
+                        <article class="small-article">
+                            <img class="small-article-img" alt="some image" src="img/SmallNews4.png">
+                            <h3 class="news-item-text">
+                              <a href="#">
+                                  Кот Ахил предсказад победу российской сборной над Египтом на ЧМ-2018
+                             </a>
+                            </h3>
+                            <div class="news-item-props">
+                                <a href="#">/ЧМ по футболу</a>
+                                <time datetime="2020-12-05T16:59+03:00" class="article-time">16:59</time>
+                                <span class="article-comments-count">17</span>
+                            </div>
+                        </article>
+                    </div>    
+                </div>
+                <aside class="column-right">
+                    <img class="banner" alt="some image" src="img/banner-1.png">
+                    <img class="banner" alt="some image" src="img/banner-2.png">
+                </aside>
+                <section class="popular-news">
+                    <article class="big-article">
+                        <a href="#" class="big-article-ref color-big-article-ref">/Политика</a>
+                        <h3 class="big-article-text">
+                            <a href="#" class="color-big-article-ref">
+                                В Крыму отреагировали на слова Кравчука о возврате
+                                полуострова
+                            </a>
+                        </h3>
+                        <time datetime="2020-12-05T16:59+03:00" class="big-article-datetime">
+                            5 Декабря 2020
+                            <span class="big-article-time">16:59
+                            </span>
+                        </time>
+                    </article>
+                    <div class="popular-news-article">
+                        <h2 class="column-left-header">Самые читаемые новости</h2>
+                        <div class="column-left-news-cover"> 
+                            <div class="column-left-news-card">
+                                <p class="column-left-news"> Кот Ахилл предсказал победу 
+                                российской сборной над Египтом 
+                                на ЧМ-2018</p>
+                                <div class="column-left-card-footer">
+                                    <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                    <span class="column-left-card-time">10:48</span>
+                                    <span class="column-left-card-comment">15</span>
+                                </div>
+                            </div>
+                            <div class="column-left-news-card">
+                                <p class="column-left-news">«Нафтогаз»: суд разрешил заморозить 
+                                активы «Газпрома» в Великобритании</p>
+                                <div class="column-left-card-footer">
+                                    <a href="#" class="column-left-ref">/ЧМ по футболу</a>
+                                    <span class="column-left-card-time">10:48</span>
+                                    <span class="column-left-card-comment">15</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="footer-container">
+        <div class="fixed-container">
+            <div class="footer-info">
+                <div class="fixed-conteiner">
+                <nav class="footer-nav">
+                    <ul class="footer-column-left">
+                        <li class="footer-nav-item">
+                            <a href="#">Главная</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Политика</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Общество</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Экономика</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">В мире</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-column-right">
+                        <li class="footer-nav-item">
+                            <a href="#"> Путешествия</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Спорт</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Наука</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Туризм</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer-contact-info">
+                    <div class="footer-logo-name">
+                        <a href="#">Новостное агентство</a>
+                    </div>
+                    <ul class="contact-info">
+                        <li class="footer-nav-item">
+                            <a href="#">Об агентстве</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Контакты</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#">Опубликовать новость</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ref">
+                    <a href="#">
+                        <img alt="some image" class="sotial-net-first" src="img/vk.png">
+                    </a>
+                    <a href="#">
+                        <img alt="some image" class="sotial-net-others" src="img/facebook.png">
+                    </a>
+                    <a href="#">
+                        <img alt="some image" class="sotial-net-others" src="img/twitter.png">
+                    </a>
+                    <a href="#">
+                        <img alt="some image" class="sotial-net-others" src="img/instagram.png">
+                    </a>
+                    <div class="phone">+7(499)-955-55-55</div>
+                    <div class="mail">
+                        <a href="#">info@agency.ru</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="published">
+            <img class="published-big" src="img/published.png">
+            <img class="published-320" src="img/published-small.png">
+        </div>
+    </footer>
 </body>
 </html>
