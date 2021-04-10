@@ -637,6 +637,10 @@ nav a {
 
 @media (min-width: 970px) and (max-width: 1060px) {
     
+    ul {
+        font-size: 16px;
+    }
+    
     .column-left {
         max-width: 250px;
     }
@@ -684,6 +688,10 @@ nav a {
         font-size: 14px;
     }
 
+    ul {
+        font-size: 14px;
+    }
+
     .column-left {
         max-width: 250px;
     }
@@ -728,6 +736,10 @@ nav a {
 @media (min-width: 831px) and (max-width: 899px) {
 
     html {
+        font-size: 12px;
+    }
+
+    ul {
         font-size: 12px;
     }
 
